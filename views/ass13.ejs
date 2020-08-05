@@ -13,7 +13,7 @@
         </div>
     </div>
 </section>
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="public/js/jquery%203.5.1.js"></script>
 <script type="text/javascript">
     $.ajax({
         url:"http://api.openweathermap.org/data/2.5/forecast",
@@ -35,7 +35,7 @@
                     "                        <p class=\"time\">"+e.dt_txt+"</p>\n" +
                     "                        <h2 class=\"cen\"><span>"+e.main.temp+"</span><sup>o</sup>C</h2>\n" +
                     "                        <p class=\"desc\">"+x+"</p>\n" +
-                    "                        <img class=\"img\" src=\"http://openweathermap.org/img/wn/"+e.weather[0].icon+"@2x.png\"/>\n" +
+                    "                        <imgs class=\"img\" src=\"http://openweathermap.org/img/wn/"+e.weather[0].icon+"@2x.png\"/>\n" +
                     "                    </div>\n" +
                     "                </div>";
                 $("#weather").append(box);
