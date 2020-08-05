@@ -20,16 +20,24 @@ app.get("/ass13",function (req,res){
         counter:counter
     });
 });
+app.get("/login",function (req,res) {
+    let obj = {
+        name:"Le van A",
+        age: 18
+    }
+    res.send(obj);
+});
 const fs = require("fs");
 app.get("/danh-muc",function (req,res) {
     let cats = fs.readFileSync("data/data.json","UTF-8");
     cats = JSON.parse(cats);
-    res.render("labs10", {
-        cats:cats,
+    res.render("lab10",{
+        cats:cats
     });
 });
-app.get("/chi-tiet/:id",function (req,res){
-    let ID = req.param.id;
+
+app.get("/chi-tiet/:id",function (req,res) {
+    let ID = req.params.id;
     let cats = fs.readFileSync("data/data.json","UTF-8");
     cats = JSON.parse(cats);
     let count = 0;
@@ -37,14 +45,19 @@ app.get("/chi-tiet/:id",function (req,res){
         count++;
         if(e.id == ID){
             res.render("chitiet",{
-                cat:e
+                cat: e
             });
-            count = 0
+            count=0;
         }
     })
-    if(count  >= cats.length){
-        res.send("khong tim thay");
+    if(count>= cats.length){
+        res.send("Khong tim thay");
     }
 })
+
+app.get("/trang-gi-do",function (req,res) {
+    let obj = {name:"quang Hoa"};
+    res.send(obj);
+});
 
 
